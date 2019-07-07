@@ -1,0 +1,44 @@
+####################################################################################
+#                      FILE INPUT PROPERTIES                                       #
+# Variables :                                                                      #
+#    - ${file_date} will be replaced by date formatted with fileDatePattern        #
+#    - ${store_uuid}  store uuid, will be replaced by any string                   #
+####################################################################################
+- fileType: Transaction
+  fileNamePattern: "(transactions_)(${file_date})(.data)"
+  fileDatePattern: "yyyyMMdd"
+  fileProperties:
+    delimiter: "|"
+    hasHeader: false
+    quote: "\""
+    escape: "\\"
+    charset: "UTF-8"
+
+- fileType: Product
+  fileNamePattern: "(reference_prod-)(${store_uuid})(_)(${file_date})(.data)"
+  fileDatePattern: "yyyyMMdd"
+  fileProperties:
+    delimiter: "|"
+    hasHeader: false
+    quote: "\""
+    escape: "\\"
+    charset: "UTF-8"
+
+
+#######################################################################################
+#                      RESULT OUTPUT PROPERTIES                                       #
+# Variables :                                                                         #
+#    - ${file_date} will be replaced by current_date formatted with fileDatePattern   #
+#    - ${aggregation_level} will be replaced by either 'GLOBAL' or 'product_uuid'     #
+#    - ${measure_type} will be replaced by either 'ca' or  'ventes'                   #
+#    - ${delta} will be replaced by either '-7J' (week result) or  empty (day result) #
+#######################################################################################
+- fileType: SalesResult
+  fileNamePattern: "top_100_${measure_type}_${aggregation_level}_${file_date}${delta}.data"
+  fileDatePattern: "yyyyMMdd"
+  fileProperties:
+    delimiter: "|"
+    hasHeader: false
+    quote: "\""
+    escape: "\\"
+    charset: "UTF-8"

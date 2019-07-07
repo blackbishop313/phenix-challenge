@@ -1,0 +1,11 @@
+language: scala
+
+scala:
+  - 2.11.8
+
+script:
+  - mvn test
+
+notifications:
+  email:
+- moun.hamoudi@gmail.com
