@@ -1,4 +1,8 @@
 *.iml
-.idea
+.idea/
 *.class
 *.log
+.classpath
+.project
+.settings/
+.cache*
