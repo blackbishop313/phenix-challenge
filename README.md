@@ -2,7 +2,7 @@
 The project attempts to provide solution for the [Carrefour Phenix Challenge](https://github.com/Carrefour-Group/phenix-challenge). 
 The application runs calculations of sales volume and sales amount by store. 
 
-####Assumptions
+#### Assumptions
 * The files do not contain duplicate data
 * The structures are safe. The calculation taks fail if there are some parsing errors
 * For each Transaction file we have corresponding Product files.
